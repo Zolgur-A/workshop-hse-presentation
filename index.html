@@ -43,6 +43,7 @@
             bottom: 20px;
             right: 20px;
             display: flex;
+            align-items: center;
             gap: 12px;
             z-index: 1000;
             background: rgba(255,255,255,0.8);
@@ -51,6 +52,12 @@
             border-radius: 60px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             border: 1px solid #e2e8f0;
+        }
+        .nav-hint {
+            font-size: 0.75rem;
+            color: #475569;
+            margin-right: 8px;
+            white-space: nowrap;
         }
         .nav-slides button {
             background: #1e293b;
@@ -83,14 +90,14 @@
             padding: 2rem 1.5rem;
         }
         .slide {
-            background: white;
+            background: transparent;
             border-radius: 2rem;
-            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+            box-shadow: none;
             margin-bottom: 2rem;
             padding: 2rem;
             transition: all 0.2s;
             scroll-margin-top: 1rem;
-            border: 1px solid #eef2ff;
+            border: none;
         }
         .slide.slide-hero {
             background: transparent;
@@ -170,15 +177,17 @@
             border-left-color: #3b82f6;
         }
         .meme-placeholder {
-            background: #f1f5f9;
             border-radius: 1rem;
-            padding: 0.8rem;
             text-align: center;
-            font-size: 0.8rem;
-            color: #334155;
-            border: 1px dashed #cbd5e1;
             margin: 0.8rem 0;
-            font-style: italic;
+            overflow: hidden;
+        }
+        .meme-placeholder img {
+            max-height: 180px;
+            max-width: 100%;
+            width: auto;
+            object-fit: contain;
+            border-radius: 0.8rem;
         }
         .badge {
             background: #eef2ff;
@@ -205,15 +214,43 @@
             background: #eef2ff;
             font-weight: 700;
         }
+        .prompt-wrapper {
+            position: relative;
+            margin: 1rem 0;
+        }
         .prompt-box {
             background: #0f172a;
             color: #e2e8f0;
             padding: 1rem;
             border-radius: 1rem;
             font-family: monospace;
-            font-size: 0.85rem;
-            margin: 1rem 0;
+            font-size: 0.72rem;
+            margin: 0;
             white-space: pre-wrap;
+            max-height: 220px;
+            overflow-y: auto;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #e2e8f0;
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+        .copy-btn:hover {
+            background: rgba(255,255,255,0.25);
+        }
+        .copy-btn.copied {
+            background: #22c55e;
+            color: white;
+            border-color: #22c55e;
         }
         .checkpoint {
             background: #dcfce7;
@@ -282,8 +319,9 @@
 <body>
 <div class="progress-bar" id="progressBar"></div>
 <div class="nav-slides">
+    <span class="nav-hint">🎯 Воркшоп: от идеи до сайта за 1.5 часа · стрелки ←→</span>
     <button id="prevBtn">←</button>
-    <span class="slide-counter" id="slideCounter">1 / 14</span>
+    <span class="slide-counter" id="slideCounter">1 / 15</span>
     <button id="nextBtn">→</button>
 </div>
 
@@ -313,7 +351,6 @@
                 <strong>🗣️ Вчера</strong>
                 <p>— «Сергей, помнишь логику скидок?»<br>— «Конечно, сделаю.»</p>
                 <p>📦 Контекст жил в головах людей.<br>💰 Бюджет: 80% зарплаты (аналитик+4дева+2теста).<br>📊 Метрики: строки кода, задачи, часы в Jira.</p>
-                <div class="meme-placeholder">🖼️ [МЕМ] Два друга с кофе понимающе кивают, рядом стопка «документация» в пыли.</div>
             </div>
             <div class="card-compare today">
                 <strong>🤖 А что сейчас?</strong>
@@ -321,17 +358,18 @@
                 <p>❗ У нейронки нет памяти. Документация — не «потом», а ТОПЛИВО.</p>
             </div>
         </div>
+        <div class="meme-placeholder"><img src="image/mem1.png" alt="Мем"></div>
         <div class="speech-note">
-            🎤 <strong>Речь спикера:</strong> «Друзья, давайте честно: кто хоть раз говорил коллеге \"ну ты же помнишь\"? А теперь представьте, что вы говорите это ChatGPT. Он сделает круглые глаза (виртуально) и нафантазирует блокчейн. Раньше контекст жил в людях — сегодня нейронка без документации превращается в генератор сюрпризов. И да, 80% бюджета уходило на зарплаты огромной команды, а сейчас эти проценты перетекают в токены и качественный контекст. Почувствуйте разницу!»
+            🎤 <strong>Речь спикера:</strong> «Друзья, давайте честно
         </div>
     </div>
 
-    <!-- СЛАЙД 2 – Что сейчас: контекст решает всё -->
-    <div class="slide" data-index="1">
+    <!-- СЛАЙД 3 – Что сейчас: контекст решает всё -->
+    <div class="slide" data-index="2">
         <span class="badge">Теория · 3 мин</span>
         <h1>🎭 2. Контекст решает всё</h1>
         <p><strong>Главная боль 2025:</strong> если нет документации — ИИ начинает фантазировать.</p>
-        <div class="meme-placeholder">🖼️ [МЕМ] Человек шепчет в ноутбук, а оттуда вылетают ракета, космодром и кот с блокчейном.</div>
+        <div class="meme-placeholder"><img src="image/mem2.png" alt="Мем"></div>
         <div class="checkpoint">
             ❓ Вопрос к залу: «Кто уже получал от нейросети сюрпризы, которые не заказывал? Ну, там телеграм-бота вместо кнопки или аналитику на 100 страниц?» 😂
         </div>
@@ -341,8 +379,8 @@
         </div>
     </div>
 
-    <!-- СЛАЙД 3 – 3 слоя документации -->
-    <div class="slide" data-index="2">
+    <!-- СЛАЙД 4 – 3 слоя документации -->
+    <div class="slide" data-index="3">
         <span class="badge">Теория · 4 мин</span>
         <h1>📚 3. Три слоя документации</h1>
         <table>
@@ -360,8 +398,8 @@
         </div>
     </div>
 
-    <!-- СЛАЙД 4 – Скорости и бюджеты (распределение) -->
-    <div class="slide" data-index="3">
+    <!-- СЛАЙД 5 – Скорости и бюджеты -->
+    <div class="slide" data-index="4">
         <span class="badge">Теория · 3 мин</span>
         <h1>⚡ 4. Скорости и бюджеты: новый расклад</h1>
         <p><strong>Код пишется в 10 раз быстрее.</strong> Узкое место — не написание, а проектирование + приёмка.</p>
@@ -380,8 +418,8 @@
         </div>
     </div>
 
-    <!-- СЛАЙД 5 – Новые метрики -->
-    <div class="slide" data-index="4">
+    <!-- СЛАЙД 6 – Новые метрики -->
+    <div class="slide" data-index="5">
         <span class="badge">Теория · 3 мин</span>
         <h1>📈 5. Новые метрики эффективности</h1>
         <div class="grid-2">
@@ -402,18 +440,25 @@
     </div>
 
     <!-- ========= ПРАКТИЧЕСКАЯ ЧАСТЬ ========= -->
-    <!-- СЛАЙД 6 – практика: развиваем идею -->
-    <div class="slide" data-index="5">
+    <!-- СЛАЙД 7 – Практика: развиваем идею -->
+    <div class="slide" data-index="6">
         <span class="badge">🛠️ Практика · 10 мин</span>
         <h1>🚀 Этап 1: Развиваем идею</h1>
         <p><strong>Промт для ИИ (скопируйте и вставьте в ChatGPT/Claude/DeepSeek):</strong></p>
         <div class="prompt-box">
-            «У меня есть идея для сайта: [опишите вашу идею, например: портфолио для фотографа, лендинг стартапа, туристический блог]. Помоги развить эту идею: 
-            1. Какая основная цель сайта? 
-            2. Кто целевая аудитория? 
-            3. Какие 3–5 ключевых блоков должны быть на главной странице? 
-            4. Какое настроение и стиль? 
-            Выдай структуру сайта в виде списка.»
+            «Ты — опытный продакт-менеджер. Я расскажу тебе свою идею для сайта, а ты поможешь её докрутить.
+
+            Моя идея: [опишите в 1–2 предложениях, например: лендинг для стартапа доставки еды / портфолио фотографа / блог о путешествиях]
+
+            Проведи анализ и выдай результат в следующем формате:
+            1. <strong>Название проекта</strong> — предложи 3 варианта названия
+            2. <strong>Цель</strong> — одно предложение: что пользователь должен сделать на сайте
+            3. <strong>Целевая аудитория</strong> — кто придёт, откуда, возраст, интересы
+            4. <strong>Структура главной страницы</strong> — пронумерованный список из 4–6 блоков (например: герой-секция, о нас, услуги, отзывы, контакты)
+            5. <strong>Настроение и стиль</strong> — 3–4 прилагательных (например: минималистичный, тёплый, современный)
+            6. <strong>Призыв к действию (CTA)</strong> — главная кнопка сайта
+
+            Не пиши код. Только структуру и смыслы.»
         </div>
         <div class="checkpoint">✅ Чек-пойнт: у каждого есть название и структура сайта.</div>
         <div class="speech-note">
@@ -421,12 +466,45 @@
         </div>
     </div>
 
-    <!-- СЛАЙД 7 – Упаковываем контекст (документация слой 1) -->
-    <div class="slide" data-index="6">
+    <!-- СЛАЙД 8 – Упаковываем контекст -->
+    <div class="slide" data-index="7">
         <span class="badge">Практика · 10 мин</span>
         <h1>📄 Этап 2: Упаковываем контекст</h1>
         <div class="prompt-box">
-            «На основе предыдущего ответа создай описание проекта для документации. Включи: название, целевую аудиторию, ключевые блоки, настроение, технические требования (адаптивность, простота). Выдай в формате Markdown. Без лишних комментариев.»
+            «На основе нашего предыдущего обсуждения создай формализованное описание проекта — <strong>description.md</strong>. Это документ, который будет использоваться как контекст для ИИ при дальнейшей разработке.
+
+            Структура документа:
+            ```markdown
+            # [Название проекта]
+
+            ## Цель
+            [Одно предложение]
+
+            ## Целевая аудитория
+            [Кто, откуда, зачем]
+
+            ## Структура главной страницы
+            1. [Блок 1] — [назначение]
+            2. [Блок 2] — [назначение]
+            ...
+
+            ## Контент
+            - Заголовок hero-секции: [текст]
+           - Подзаголовок: [текст]
+            - Текст кнопки CTA: [текст]
+            - 2–3 отзыва (имя, текст, роль)
+
+            ## Настроение
+            [3–4 прилагательных]
+
+            ## Технические требования
+            - Одностраничный сайт (landing page)
+            - Адаптивный дизайн (mobile-first)
+            - Один файл index.html (HTML + CSS + JS)
+            - Без внешних зависимостей
+            ```
+
+            Выдай только Markdown-код, без пояснений.»
         </div>
         <p>💾 Сохраните как <code>description.md</code> — это ваш <strong>Слой 1 (для людей)</strong> и одновременно shared state.</p>
         <div class="checkpoint">✅ Чек-пойнт: файл description.md готов.</div>
@@ -435,12 +513,45 @@
         </div>
     </div>
 
-    <!-- СЛАЙД 8 – Брендбук -->
-    <div class="slide" data-index="7">
+    <!-- СЛАЙД 9 – Брендбук -->
+    <div class="slide" data-index="8">
         <span class="badge">Практика · 10 мин</span>
         <h1>🎨 Этап 3: Стиль + брендбук</h1>
         <div class="prompt-box">
-            «На основе description.md создай брендбук: цветовую палитру (hex-коды, для каких элементов), шрифты, стиль кнопок, карточек, общее настроение. Выдай в формате Markdown.»
+            «Ты — UI/UX-дизайнер. На основе description.md создай брендбук проекта — <strong>style-guide.md</strong>. Это визуальная инструкция для ИИ-генератора кода.
+
+            Структура документа:
+            ```markdown
+            # Брендбук: [Название проекта]
+
+            ## Цветовая палитра
+            | Роль | Цвет | HEX | Пример использования |
+            |------|------|-----|---------------------|
+            | Основной | [название] | #XXXXXX | Заголовки, кнопки CTA |
+            | Вторичный | [название] | #XXXXXX | Фоны секций |
+            | Акцент | [название] | #XXXXXX | Иконки, hover-эффекты |
+            | Текст | [название] | #XXXXXX | Основной текст |
+            | Фон | [название] | #XXXXXX | Body, карточки |
+
+            ## Типографика
+            - Заголовки: [шрифт], [начертание], [размеры для h1–h3]
+            - Основной текст: [шрифт], [размер], [межстрочный интервал]
+
+            ## Компоненты
+            ### Кнопки
+            - Основная: [цвет фона], [цвет текста], [скругление], [padding]
+            - Hover-эффект: [описание]
+
+            ### Карточки
+            - Фон, скругление, тень, padding
+
+            ## Общие принципы
+            - Скруглённые углы (border-radius: [значение])
+            - Минимальные отступы между секциями: [значение]
+            - Стиль иконок: [заливные/линейные]
+            ```
+
+            Выдай только Markdown-код, без пояснений.»
         </div>
         <p>💾 Сохраните как <code>style-guide.md</code> (Слой 1 и 2 одновременно).</p>
         <div class="meme-placeholder">🖼️ [МЕМ] Архитектор стиля: палитра и шрифты, робот с палитрой красок.</div>
@@ -449,12 +560,32 @@
         </div>
     </div>
 
-    <!-- СЛАЙД 9 – Генерация сайта HTML -->
-    <div class="slide" data-index="8">
+    <!-- СЛАЙД 10 – Генерация сайта -->
+    <div class="slide" data-index="9">
         <span class="badge">Практика · 20 мин</span>
         <h1>💻 Этап 4: Генерируем полноценный сайт</h1>
         <div class="prompt-box">
-            «На основе description.md и style-guide.md создай одностраничный сайт (landing page) на HTML/CSS/JS. Требования: адаптивный дизайн, современный код, используй цветовую палитру из брендбука, структура 4–5 блоков. Выдай полный HTML-код, который можно сохранить в index.html. Только код, без пояснений.»
+            «Ты — senior frontend-разработчик. Создай одностраничный сайт на основе description.md и style-guide.md.
+
+            <strong>Требования к коду:</strong>
+            - Один файл index.html (HTML5 + встроенный CSS + встроенный JS)
+            - Mobile-first адаптивная вёрстка (медиа-запросы для 768px и 1024px)
+            - Семантическая разметка (header, main, section, footer)
+            - Цвета, шрифты и компоненты — строго из style-guide.md
+            - Плавная прокрутка (scroll-behavior: smooth)
+            - Hover-эффекты на кнопках и карточках
+            - Все тексты из description.md (никакого Lorem ipsum)
+            - Оптимизация под retina-дисплеи
+
+            <strong>Структура файла:</strong>
+            &lt;!DOCTYPE html&gt; → &lt;head&gt; (meta, title, style) → &lt;body&gt; (header с навигацией, hero-секция, секции из description.md, footer) → &lt;script&gt;
+
+            <strong>JS-функционал:</strong>
+            - Плавная прокрутка к секциям по клику в навигации
+            - Анимация появления элементов при скролле (IntersectionObserver)
+            - Мобильное меню (гамбургер)
+
+            Выдай полный рабочий HTML-код. Только код, без пояснений.»
         </div>
         <p>📁 Сохраните код в <code>index.html</code>, откройте в браузере. Если нужно что-то поправить — используйте уточняющий промт: «Внеси правки: ... Выдай полный обновлённый код».</p>
         <div class="speech-note">
@@ -462,8 +593,8 @@
         </div>
     </div>
 
-    <!-- СЛАЙД 10 – GitHub + публикация -->
-    <div class="slide" data-index="9">
+    <!-- СЛАЙД 11 – GitHub + публикация -->
+    <div class="slide" data-index="10">
         <span class="badge">Практика · 10 мин</span>
         <h1>🌍 Этап 5: Выкладываем на GitHub Pages</h1>
         <p><strong>Инструкция (показываем экран):</strong></p>
@@ -479,8 +610,8 @@
         </div>
     </div>
 
-    <!-- СЛАЙД 11 – Делимся результатами -->
-    <div class="slide" data-index="10">
+    <!-- СЛАЙД 12 – Делимся результатами -->
+    <div class="slide" data-index="11">
         <span class="badge">Практика · 5 мин</span>
         <h1>🤝 Этап 6: Делимся результатами</h1>
         <p><strong>Что показываем:</strong> ссылку на сайт + название проекта + один инсайт.</p>
@@ -496,8 +627,8 @@
         </div>
     </div>
 
-    <!-- СЛАЙД 12 – Бонус: что осталось -->
-    <div class="slide" data-index="11">
+    <!-- СЛАЙД 13 – Что осталось -->
+    <div class="slide" data-index="12">
         <span class="badge">Итоги</span>
         <h1>🎁 Что у вас осталось после воркшопа</h1>
         <ul>
@@ -511,8 +642,8 @@
         </div>
     </div>
 
-    <!-- СЛАЙД 13 – Главная мысль и финал -->
-    <div class="slide" data-index="12">
+    <!-- СЛАЙД 14 – Главная мысль -->
+    <div class="slide" data-index="13">
         <span class="badge">Главный вывод</span>
         <h1>🧭 Раньше боялись, что ИИ заменит разработчиков. Теперь понимаем: он заменит тех, кто не умеет управлять контекстом.</h1>
         <p>Документация. Архитектура. Тесты. Бюджет на токены. Новые метрики.</p>
@@ -522,8 +653,8 @@
         </div>
     </div>
 
-    <!-- СЛАЙД 14 – Благодарность -->
-    <div class="slide" data-index="13">
+    <!-- СЛАЙД 15 – Благодарность -->
+    <div class="slide" data-index="14">
         <span class="badge">Финал</span>
         <h1>🙌 Благодарю за работу!</h1>
         <p>Александр Ваничев / ваш спикер</p>
@@ -534,7 +665,7 @@
         </div>
     </div>
 </div>
-<footer>🎯 Воркшоп: от идеи до опубликованного сайта за 1.5 часа | используйте стрелки или кнопки для навигации</footer>
+
 
 <script>
     const slides = document.querySelectorAll('.slide');
@@ -585,6 +716,28 @@
         if (e.key === 'ArrowRight') nextSlide();
         if (e.key === 'ArrowLeft') prevSlide();
     });
+    // Кнопки «Копировать» для промтов
+    document.querySelectorAll('.prompt-box').forEach(box => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'prompt-wrapper';
+        const btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = '📋 Копировать';
+        btn.addEventListener('click', () => {
+            navigator.clipboard.writeText(box.innerText.trim()).then(() => {
+                btn.textContent = '✅ Скопировано!';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = '📋 Копировать';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        });
+        box.parentNode.insertBefore(wrapper, box);
+        wrapper.appendChild(box);
+        wrapper.appendChild(btn);
+    });
+
     // Переключатель видимости «Речь спикера»
     document.querySelectorAll('.speech-note').forEach(note => {
         const btn = document.createElement('button');
