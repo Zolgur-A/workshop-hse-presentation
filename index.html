@@ -125,6 +125,36 @@
             border: 3px solid #3b82f6;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+        .speaker-info {
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+        }
+        .speaker-info h3 {
+            color: #1e293b;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .speaker-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+        .speaker-stat {
+            background: #f8fafc;
+            padding: 0.6rem 0.8rem;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
         .author-info {
             display: flex;
             flex-direction: column;
@@ -343,7 +373,17 @@
             <img class="author-photo" src="image/my-photo.jpg" alt="Автор">
             <div class="author-info">
                 <span class="author-name">Ваничев Александр</span>
-                <span class="author-role">Спикер · ВШМ СПБГУ</span>
+                <span class="author-role">Спикер</span>
+            </div>
+        </div>
+        <div class="speaker-info">
+            <h3>📋 Кратко о спикере</h3>
+            <div><strong>Александр Ваничев</strong><br>Solution Architect | AI/LLM Expert</div>
+            <div class="speaker-stats">
+                <div class="speaker-stat">🏆 100+ ИИ-внедрений</div>
+                <div class="speaker-stat">⏱️ Миллионы сэкономленных часов</div>
+                <div class="speaker-stat">⚡ 10+ пилотов выведены в прод</div>
+                <div class="speaker-stat">💼 MCP & ROI-кейсы</div>
             </div>
         </div>
         <div class="speech-note">
