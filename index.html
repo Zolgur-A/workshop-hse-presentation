@@ -401,6 +401,27 @@
             color: white;
             border-color: #22c55e;
         }
+        .results-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 2rem;
+        }
+        .icon-circle {
+            font-size: 5rem;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        }
         .checkpoint {
             background: #dcfce7;
             border-left: 8px solid #22c55e;
@@ -928,14 +949,24 @@
     <div class="slide" data-index="12">
         <span class="badge">Итоги</span>
         <h1>🎁 Что у вас осталось после воркшопа</h1>
-        <ul>
-            <li>✅ Живой сайт на GitHub Pages</li>
-            <li>✅ Документация (description.md + style-guide.md) — слои 1 и 2</li>
-            <li>✅ Shared state — можно продолжать работу с ИИ, подгружая эти файлы</li>
-            <li>✅ Понимание новых бюджетов и метрик: сколько итераций, стоимость контекста</li>
-        </ul>
-        <div class="speech-note">
-            🎤 <strong>Речь:</strong> «Смотрите, у вас в руках не просто сайт. У вас есть система: описание, стиль, код, опубликованный продукт. Это и есть новая разработка — где документация и контекст правят бал. Завтра вы сможете попросить ИИ добавить новый блок, просто скинув description.md. Вы теперь не просто менеджеры — вы архитекторы контекста.»
+        <div class="slide2-container">
+            <div class="slide2-left">
+                <ul>
+                    <li>✅ Живой сайт на GitHub Pages</li>
+                    <li>✅ Документация (description.md + style-guide.md) — слои 1 и 2</li>
+                    <li>✅ Shared state — можно продолжать работу с ИИ, подгружая эти файлы</li>
+                    <li>✅ Понимание новых бюджетов и метрик: сколько итераций, стоимость контекста</li>
+                </ul>
+                <div class="speech-note">
+                    🎤 <strong>Речь:</strong> «Смотрите, у вас в руках не просто сайт. У вас есть система: описание, стиль, код, опубликованный продукт. Это и есть новая разработка — где документация и контекст правят бал. Завтра вы сможете попросить ИИ добавить новый блок, просто скинув description.md. Вы теперь не просто менеджеры — вы архитекторы контекста.»
+                </div>
+            </div>
+            <div class="slide2-right">
+                <div class="results-icon">
+                    <div class="icon-circle">🎯</div>
+                    <p style="margin-top: 1rem; font-weight: 600;">Архитекторы контекста</p>
+                </div>
+            </div>
         </div>
     </div>
 
