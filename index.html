@@ -463,12 +463,23 @@
                 max-width: 80% !important;
             }
         }
+        .slide5-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 700px;
+        }
+        .slide5-content ol {
+            padding-left: 1.5rem;
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
         .final-slide {
             justify-content: center;
             text-align: center;
         }
         .final-title {
-            font-size: calc(4rem * var(--scale)) !important;
+            font-size: calc(6rem * var(--scale)) !important;
             font-weight: 900;
             color: #0f2b4d;
             margin: 1rem 0 2rem 0;
@@ -936,16 +947,18 @@
     <div class="slide" data-index="10">
         <span class="badge">Практика · 10 мин</span>
         <h1>🌍 Этап 5: Выкладываем на GitHub Pages</h1>
-        <p><strong>Инструкция (показываем экран):</strong></p>
-        <ol>
-            <li>Заходим на <a href="https://github.com" target="_blank">github.com</a>, создаём репозиторий (Public) → <code>my-site</code>.</li>
-            <li>Загружаем файлы: <code>index.html</code>, <code>description.md</code>, <code>style-guide.md</code>.</li>
-            <li>Settings → Pages → Branch: main → Save.</li>
-            <li>Через 1-2 минуты сайт доступен по ссылке: <code>https://[username].github.io/my-site/</code></li>
-        </ol>
-        <div class="checkpoint">✅ У каждого есть живая ссылка на опубликованный сайт!</div>
-        <div class="speech-note">
-            🎤 <strong>Речь:</strong> «Мы не просто сделали сайт — мы выложили его в интернет. Теперь можно кидать ссылку друзьям, инвесторам, бабушке. GitHub Pages — бесплатный хостинг, который делает из вашего кода настоящий веб-сайт. И да, поздравляю: вы только что прошли полный цикл — от идеи до публикации.»
+        <div class="slide5-content">
+            <p><strong>Инструкция (показываем экран):</strong></p>
+            <ol>
+                <li>Заходим на <a href="https://github.com" target="_blank">github.com</a>, создаём репозиторий (Public) → <code>my-site</code>.</li>
+                <li>Загружаем файлы: <code>index.html</code>, <code>description.md</code>, <code>style-guide.md</code>.</li>
+                <li>Settings → Pages → Branch: main → Save.</li>
+                <li>Через 1-2 минуты сайт доступен по ссылке: <code>https://[username].github.io/my-site/</code></li>
+            </ol>
+            <div class="checkpoint">✅ У каждого есть живая ссылка на опубликованный сайт!</div>
+            <div class="speech-note">
+                🎤 <strong>Речь:</strong> «Мы не просто сделали сайт — мы выложили его в интернет. Теперь можно кидать ссылку друзьям, инвесторам, бабушке. GitHub Pages — бесплатный хостинг, который делает из вашего кода настоящий веб-сайт. И да, поздравляю: вы только что прошли полный цикл — от идеи до публикации.»
+            </div>
         </div>
     </div>
 
@@ -955,13 +968,15 @@
         <h1>🤝 Этап 6: Делимся результатами</h1>
         <div class="slide2-container">
             <div class="slide2-left">
-                <p><strong>Что показываем:</strong> ссылку на сайт + название проекта + один инсайт.</p>
-                <p><strong>Вопросы для обсуждения:</strong></p>
-                <ul>
-                    <li>Сколько итераций с ИИ потребовалось?</li>
-                    <li>Понял ли ИИ стиль из брендбука?</li>
-                    <li>Что добавите в документацию в следующий раз?</li>
-                </ul>
+                <div class="checkpoint">📌 <strong>Что показываем:</strong> ссылку на сайт + название проекта + один инсайт.</div>
+                <div class="checkpoint" style="background: #eff6ff; border-left-color: #3b82f6;">
+                    <strong>Вопросы для обсуждения:</strong>
+                    <ul style="margin-top: 0.8rem; padding-left: 1.2rem;">
+                        <li>Сколько итераций с ИИ потребовалось?</li>
+                        <li>Понял ли ИИ стиль из брендбука?</li>
+                        <li>Что добавите в документацию в следующий раз?</li>
+                    </ul>
+                </div>
                 <div class="speech-note">
                     🎤 <strong>Речь:</strong> «Окей, у кого уже есть ссылка? Давайте в чат кидайте. Посмотрим, у кого самый стильный сайт? А кто больше всего итераций потратил? Это и есть та самая метрика качества контекста. Чем меньше итераций — тем точнее были ваши промты и документация.»
                 </div>
