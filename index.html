@@ -337,6 +337,30 @@
             background: #eef2ff;
             font-weight: 700;
         }
+        .metrics-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+        }
+        .metrics-table th {
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
+        .metrics-table td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            border-right: 1px solid #e2e8f0;
+        }
+        .metrics-table tr:nth-child(even) td {
+            background: #f8fafc;
+        }
+        .metrics-table tr:hover td {
+            background: #f1f5f9;
+        }
+        }
         .prompt-wrapper {
             position: relative;
             margin: 1rem 0;
@@ -646,17 +670,44 @@
         <h1>📈 5. Новые метрики эффективности</h1>
         <div class="slide2-container">
             <div class="slide2-left">
-                <div class="grid-2">
-                    <div><strong>❌ Устарело:</strong> строки кода, часы в Jira, закрытые задачи.</div>
-                    <div><strong>✅ Новые KPI:</strong></div>
-                </div>
-                <ul style="margin: 1rem 0 0 1.5rem;">
-                    <li>⏱️ Время от идеи до рабочего прототипа</li>
-                    <li>🔄 Количество итераций с ИИ на задачу</li>
-                    <li>🧪 Покрытие тестами (объективный контроль)</li>
-                    <li>💰 Стоимость API/токенов в месяц</li>
-                    <li>🚀 Время онбординга новичка (качество документации)</li>
-                </ul>
+                <table class="metrics-table">
+                    <thead>
+                        <tr>
+                            <th style="background: #fee2e2; color: #991b1b;">❌ Устаревшие метрики</th>
+                            <th style="background: #dcfce7; color: #166534;">✅ Новые KPI эпохи ИИ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>📏 Строки кода (LOC)</td>
+                            <td>⏱️ Время от идеи до прототипа</td>
+                        </tr>
+                        <tr>
+                            <td>⏰ Часы в Jira/Trello</td>
+                            <td>🔄 Количество итераций с ИИ</td>
+                        </tr>
+                        <tr>
+                            <td>📋 Закрытые задачи</td>
+                            <td>🧪 Покрытие тестами</td>
+                        </tr>
+                        <tr>
+                            <td>📊 Velocity (story points)</td>
+                            <td>💰 Стоимость API/токенов/мес</td>
+                        </tr>
+                        <tr>
+                            <td>🎯 Фокус-фактор</td>
+                            <td>🚀 Время онбординга новичка</td>
+                        </tr>
+                        <tr>
+                            <td>📈 Коэффициент занятости</td>
+                            <td>💬 Качество промтов (prompts)</td>
+                        </tr>
+                        <tr>
+                            <td>🐛 Время отклика на баги</td>
+                            <td>🔗 Консистентность кода</td>
+                        </tr>
+                    </tbody>
+                </table>
                 <div class="speech-note">
                     🎤 <strong>Речь:</strong> «Скажите честно: кто измеряет успех по "количеству строк кода"? В мире ИИ это бессмысленно, нейросеть напишет тысячу строк за минуту. Новые метрики — скорость превращения идеи в продукт и число итераций. Если вы три часа правите промт — проблема не в нейросети, а в контексте. А ещё важнее — тесты: они становятся главным свидетелем качества.»
                 </div>
